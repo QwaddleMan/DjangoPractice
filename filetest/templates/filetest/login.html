@@ -1,0 +1,10 @@
+<h1>Please Login</h1>
+<form action="{% url 'filetest:login' %}" method="post">
+    {% csrf_token %}
+    {{ form.username.label_tag }}
+    {{ form.username }}<br>
+    {{ form.password.label_tag }}
+    {{ form.password }}<br>
+
+    <input type="submit" value="login">
+</form>
