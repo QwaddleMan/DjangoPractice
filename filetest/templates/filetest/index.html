@@ -1,0 +1,10 @@
+<h1> Welcome to the File Uploader!!!</h1>
+<p> Are you ready to upload a file??? Well then what are you waiting for? Submit a file already.</p>
+
+{% block content %}
+<form action="{% url 'filetest:index' %}" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="upload">
+</form>
+{% endblock %}
