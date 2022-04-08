@@ -1,3 +1,6 @@
+filetest/processing.py
+filetest/test.py
+
 # Django #
 *.log
 *.pot

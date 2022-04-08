@@ -4,7 +4,16 @@
 {% block content %}
 <form action="{% url 'filetest:index' %}" enctype="multipart/form-data" method="post">
     {% csrf_token %}
-    {{ form }}
+    {{ form.T1.label_tag }}
+    {{ form.T1 }}<br>
+    {{ form.T1C.label_tag }}
+    {{ form.T1C }}<br>
+    {{ form.T2.label_tag }}
+    {{ form.T2 }}<br>
+    {{ form.FLAIR.label_tag }}
+    {{ form.FLAIR }}<br>
     <input type="submit" value="upload">
 </form>
 {% endblock %}
+
+

@@ -5,20 +5,28 @@ from django.contrib.auth.models import User
 from django import forms
 import magic
 
-class NiftiFile(models.Model):
-    upload = models.FileField(upload_to="uploads/")
+class MultiContrastFiles(models.Model):
+    T1 = models.FileField(upload_to="uploads/")
+    T1C = models.FileField(upload_to="uploads/")
+    T2 = models.FileField(upload_to="uploads/")
+    FLAIR = models.FileField(upload_to="uploads/")
+
 
 class NiftiFileForm(ModelForm):
+    T1 = forms.FileField(required=True, label="T1")
+    T1C = forms.FileField(required=True, label="T1C")
+    T2 = forms.FileField(required=True, label="T2")
+    FLAIR = forms.FileField(required=True, label="FLAIR")
 
-    def clean_upload(self):
-        file = self.cleaned_data.get("upload")
-        filetype = magic.from_buffer(file.read())
-        print(filetype)
-        return file
+#    def clean_upload(self):
+#        file = self.cleaned_data.get("upload")
+#        filetype = magic.from_buffer(file.read())
+#        print(filetype)
+#        return file
 
     class Meta:
-        model = NiftiFile
-        fields = ['upload']
+        model = MultiContrastFiles
+        fields = ['T1', 'T1C', 'T2', 'FLAIR']
 
 class NewUserForm(UserCreationForm):
     email = forms.EmailField(required=True)
