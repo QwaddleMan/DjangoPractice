@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from .models import MultiContrastFiles, NiftiFileForm, UserLoginForm, NewUserForm
 from .test import load_data
 
+# changed origin to use ssh. this is a test.
 # Create your views here.
 #@login_required(login_url='/filetest/login')
 def index(request):
